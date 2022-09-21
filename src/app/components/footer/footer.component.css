@@ -1,0 +1,16 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-line {
+    border-top: 1px solid black;
+    padding-top: 20px;
+}
+
+.center {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}

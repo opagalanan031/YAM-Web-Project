@@ -1,0 +1,11 @@
+.title-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+svg {
+    margin-right: 10px;
+    /* height: 30px;
+    width: 30px; */
+    
+}
