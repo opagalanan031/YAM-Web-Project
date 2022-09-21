@@ -1,9 +1,11 @@
 <nav class="navbar bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand title-font">Young Adults Ministry</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light" type="submit">Search</button>
-    </form>
+    <a class="navbar-brand title-font" routerLink="/">Young Adults Ministry</a>
+    <span class="spacer-right"></span>
+      <form class="d-flex me-4" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    <a routerLink="/login" class="login-link mx-4">Login</a>
   </div>
 </nav>
