@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="container px-5 py-5">
+    <div class="form-border px-5 py-5">
+        <h1 class="center pb-4">Login</h1>
+        <form class="row justify-content-center g-3 pt-3">
+            <div class="col-7 form-floating">
+                <input type="text" class="form-control" id="username" placeholder="Username">
+                <label for="username">Username</label>
+            </div>
+            <div class="col-7 form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+            
+            <div class="col-7 d-grid">
+                <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+            <div class="col-12">
+                <p class="center">Don't have an account? <a routerLink="/register">Register here!</a></p>
+            </div>
+        </form>
+    </div>
+</div>
