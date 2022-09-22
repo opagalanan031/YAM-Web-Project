@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = '';
-  password = '';
+  username: string = '';
+  password: string = '';
 
   authenticated = false;
+  loginFailed = false;
 
   constructor(private router: Router) { }
 
@@ -19,9 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log(this.username + ' ' +this.password);
     if(this.username === 'user' && this.password === 'pass123') {
       this.authenticated = true;
       this.router.navigate(['/dashboard']);
+    } else {
+      this.loginFailed = true;
     }
   }
 }

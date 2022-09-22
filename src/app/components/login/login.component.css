@@ -9,3 +9,20 @@
 label {
     margin-left: 10px;
 }
+
+.forgot {
+    text-decoration: none;
+    color: black;
+}
+
+.forgot:hover {
+    color: blue;
+}
+
+.warn {
+    color: red;
+}
+
+.success {
+    color: green;
+}
