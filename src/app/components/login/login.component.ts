@@ -31,21 +31,39 @@ export class LoginComponent implements OnInit {
 
       this.navigate();
     }
+
+    const forms = document.querySelectorAll('.needs-validation');
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
   }
 
   login() {
-    this.authService.login(this.username, this.password).subscribe({
-      next: (data) => {
-        this.tokenStorageService.saveUser(data);
-        this.authenticated = true;
-        this.roles = this.tokenStorageService.getUser().roles;
-        this.success();
-      },
-      error: (err) => {
-        this.errorMessage = err.error.message;
-        this.loginFailed = true;
-      }
-    });
+    if(!this.username || !this.password) {
+      this.errorMessage = 'Please fill up required fields';
+    } else {
+      this.authService.login(this.username, this.password).subscribe({
+        next: (data) => {
+          this.tokenStorageService.saveUser(data);
+          this.authenticated = true;
+          this.roles = this.tokenStorageService.getUser().roles;
+          this.success();
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+          this.loginFailed = true;
+        }
+      });
+    }
   }
 
   success() {
@@ -53,7 +71,7 @@ export class LoginComponent implements OnInit {
   }
  
   navigate() {
-    if(this.roles.includes('REGULAR_USER')) {
+    if(this.roles.includes('REGULAR_MEMBER')) {
       this.router.navigateByUrl('/dashboard');
     } else if(this.roles.includes('CORE_MEMBER')) {
       this.router.navigateByUrl('/core-dashboard');

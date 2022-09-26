@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  authenticated = false;
+  name?: string;
+  roles: string[] = [];
+
+  constructor(
+    private router: Router,
+    private tokenStorageService: TokenStorageService
+  ) { }
 
   ngOnInit(): void {
+    if(this.tokenStorageService.loggedIn()) {
+      this.authenticated = true;
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      this.name = user.firstName;
+    }
+  }
+
+  logout() {
+    this.tokenStorageService.clear();
+    window.location.reload();
   }
 
 }

@@ -2,10 +2,14 @@
   <div class="container-fluid">
     <a class="navbar-brand title-font" routerLink="/">Young Adults Ministry</a>
     <span class="spacer-right"></span>
-      <form class="d-flex me-4" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
-    <a routerLink="/login" class="login-link mx-4">Login</a>
+    <form class="d-flex me-4" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
+    <div *ngIf="authenticated" class="mx-4"> 
+      <b>Welcome {{ name }}</b>
+    </div>
+    <a routerLink="/login" class="log-link mx-4" *ngIf="!authenticated">Login</a>
+    <a routerLink="/" (click)="logout()" class="log-link mx-4" *ngIf="authenticated">Logout</a>
   </div>
 </nav>

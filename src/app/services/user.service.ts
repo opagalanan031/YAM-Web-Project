@@ -7,7 +7,7 @@ import { User } from '../models/models';
   providedIn: 'root'
 })
 export class UserService {
-  private USER_BASE_URL = 'http://localhost:8080/users';
+  private USER_BASE_URL = 'http://localhost:8080/user';
 
   postHeader = {
     headers: new HttpHeaders({

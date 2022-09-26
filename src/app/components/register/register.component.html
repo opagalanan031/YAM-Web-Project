@@ -1,18 +1,30 @@
 <div class="container px-5 py-5">
+    <div *ngIf="errorMessage" class="alert alert-danger warning"> 
+        {{ errorMessage}}
+    </div>
     <div class="form px-5 py-5">
         <h1 class="center pb-4">Register</h1>
-        <form class="row g-3 pt-3" [formGroup]="registerForm" #rForm="ngForm">
+        <form class="row g-3 pt-3 needs-validation" novalidate [formGroup]="registerForm" #rForm="ngForm">
             <div class="col-md-6 form-floating mb-3">
                 <input type="email" class="form-control" id="email" placeholder="name@gmail.com" formControlName="email" required>
                 <label for="email">Email</label>
+                <div class="invalid-feedback">
+                    Email is <strong>required</strong>
+                </div>
             </div>
             <div class="col-md-6 form-floating mb-3">
                 <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username" required>
                 <label for="username">Username</label>
+                <div class="invalid-feedback">
+                    Username is <strong>required</strong>
+                </div>
             </div>
             <div class="col-md-6 form-floating mb-3">
                 <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required>
                 <label for="password">Password</label>
+                <div class="invalid-feedback">
+                    Password is <strong>required</strong>
+                </div>
             </div>
             <div class="col-md-6 form-floating mb-3"> 
                 <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" formControlName="confirmPassword" required>
@@ -21,21 +33,30 @@
             <div class="col-md-6 form-floating mb-3">          
                 <input type="text" class="form-control" id="first-name" placeholder="First Name" formControlName="firstName" required>
                 <label for="first-name">First Name</label>
+                <div class="invalid-feedback">
+                    First Name is <strong>required</strong>
+                </div>
             </div>
             <div class="col-md-6 form-floating mb-3"> 
                 <input type="text" class="form-control" id="last-name" placeholder="Last Name" formControlName="lastName" required>
                 <label for="last-name">Last Name</label>
+                <div class="invalid-feedback">
+                    Last Name is <strong>required</strong>
+                </div>
             </div>
             <div class="col-md-6 form-floating mb-3">
                 <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone">
                 <label for="phone" class="form-label">Phone</label>
             </div>
             <div class="col-md-6 form-floating mb-3">      
-                <select id="role" class="form-select" formControlName="role">
+                <select id="role" class="form-select" formControlName="role" required>
                     <option selected disabled>Select Role...</option>
                     <option *ngFor="let role of roles" value={{role}}>{{role}}</option>
                 </select>
                 <label for="state">Role</label>
+                <div class="invalid-feedback">
+                    Role is <strong>required</strong>
+                </div>
             </div>
             <div class="col-12 form-floating mb-3">
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" formControlName="address">

@@ -3,13 +3,13 @@
     font-weight: bolder;
 }
 
-.login-link {
+.log-link {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.login-link:hover {
+.log-link:hover {
     color: black;
 }
 

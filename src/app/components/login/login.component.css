@@ -19,10 +19,8 @@ label {
     color: blue;
 }
 
-.warn {
-    color: red;
-}
-
-.success {
-    color: green;
+.warning {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }

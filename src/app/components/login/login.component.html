@@ -1,23 +1,29 @@
 <div class="container px-5 py-5">
+    <div *ngIf="errorMessage" class="alert alert-danger warning"> 
+        {{ errorMessage }}
+    </div>
     <div class="form px-5 py-5">
         <h1 class="center pb-4">Login</h1>
-        <form class="row justify-content-center g-3 pt-3">
+        <form class="row justify-content-center g-3 pt-3 needs-validation" novalidate>
             <div class="col-7 form-floating mb-2">
                 <input type="text" class="form-control" id="username" placeholder="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" required>
                 <label for="username">Username</label>
+                <div class="invalid-feedback">
+                    Username is <strong>required</strong>
+                </div>
             </div>
             <div class="col-7 form-floating mb-2">
                 <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required>
                 <label for="password">Password</label>
+                <div class="invalid-feedback">
+                    Password is <strong>required</strong>
+                </div>
             </div>
             <div class="col-12 center">
                 <a class="forgot" routerLink="/#">Forgot Password?</a>
             </div>            
             <div class="col-7 d-grid">
                 <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
-            </div>
-            <div *ngIf="loginFailed" class="warn center"> 
-                Login Failed
             </div>
             <div class="col-12">
                 <p class="center">Don't have an account? <a routerLink="/register">Register here!</a></p>
