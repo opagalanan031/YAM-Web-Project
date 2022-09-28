@@ -13,6 +13,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AboutComponent } from './components/about/about.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     DashboardComponent,
     SidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutComponent,
+    ScheduleComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

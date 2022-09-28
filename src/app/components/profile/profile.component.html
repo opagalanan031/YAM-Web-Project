@@ -24,25 +24,73 @@
                 <p>
                     <b>Phone Number:</b> {{ user.phone }}
                 </p>
-                <button type="button" class="btn btn-primary" *ngIf="!editDetails" (click)="editDetails = !editDetails">Update</button>
-                <button type="button" class="btn btn-primary" *ngIf="editDetails" (click)="editDetails = !editDetails">Cancel</button>
+                <button type="button" class="btn btn-primary me-1" *ngIf="!editDetails" (click)="editDetails = !editDetails">Update</button>
+                <button type="button" class="btn btn-primary me-1" *ngIf="editDetails" (click)="editDetails = !editDetails">Cancel</button>
+
+                <button type="button" class="btn btn-primary ms-1" *ngIf="!changePw" (click)="changePw = !changePw">Change Password</button>
+                <button type="button" class="btn btn-primary ms-1" *ngIf="changePw" (click)="changePw = !changePw">Cancel</button>
 
                 <div *ngIf="editDetails" class="pt-3">
                     <form class="row g-3 px-4 py-3 needs-validation" novalidate [formGroup]="detailsForm" #dForm="ngForm">
                         <div class="col-md-6 form-floating mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="name@gmail.com" value={{user.email}} formControlName="email" required>
+                            <input type="email" class="form-control" id="email" placeholder="name@gmail.com" formControlName="email" required>
                             <label for="email">Email</label>
                             <div class="invalid-feedback">
                                 Email is <strong>required</strong>
                             </div>
                         </div>
                         <div class="col-md-6 form-floating mb-3">
-                            <input type="text" class="form-control" id="username" placeholder="Username" value={{user.username}} formControlName="username" required>
+                            <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username" required>
                             <label for="username">Username</label>
                             <div class="invalid-feedback">
                                 Username is <strong>required</strong>
                             </div>
                         </div>
+                        <div class="col-md-6 form-floating mb-3">          
+                            <input type="text" class="form-control" id="first-name" placeholder="First Name" formControlName="firstName" required>
+                            <label for="first-name">First Name</label>
+                            <div class="invalid-feedback">
+                                First Name is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3"> 
+                            <input type="text" class="form-control" id="last-name" placeholder="Last Name" formControlName="lastName" required>
+                            <label for="last-name">Last Name</label>
+                            <div class="invalid-feedback">
+                                Last Name is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3 align-center">
+                            <input type="text" class="form-control" id="phone" placeholder="Phone" formControlName="phone">
+                            <label for="phone" class="form-label">Phone</label>
+                        </div>
+                        
+                        
+                        <div class="col-7 align-center d-grid">
+                            <button type="submit" class="btn btn-primary" (click)="updateDetails()" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
+
+                            <!-- TODO: Modal Implementation -->
+                            <div class="modal fade" id="myModal" tabindex="-1">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Update User Details</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>User Details Updated Successfully!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>              
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="changePw" class="pt-3">
+                    <form class="row g-3 px-4 py-3 needs-validation" novalidate [formGroup]="passwordForm" #pForm="ngForm">
                         <div class="col-md-6 form-floating mb-3">
                             <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required>
                             <label for="password">Password</label>
@@ -54,32 +102,13 @@
                             <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" formControlName="confirmPassword" required>
                             <label for="confirm-password">Confirm Password</label>
                         </div>
-                        <div class="col-md-6 form-floating mb-3">          
-                            <input type="text" class="form-control" id="first-name" placeholder="First Name" value={{user.firstName}} formControlName="firstName" required>
-                            <label for="first-name">First Name</label>
-                            <div class="invalid-feedback">
-                                First Name is <strong>required</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form-floating mb-3"> 
-                            <input type="text" class="form-control" id="last-name" placeholder="Last Name" value={{user.lastName}} formControlName="lastName" required>
-                            <label for="last-name">Last Name</label>
-                            <div class="invalid-feedback">
-                                Last Name is <strong>required</strong>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form-floating mb-3 align-center">
-                            <input type="text" class="form-control" id="phone" placeholder="Phone" value={{user.phone}} formControlName="phone">
-                            <label for="phone" class="form-label">Phone</label>
-                        </div>
-                        
                         <div class="col-7 align-center d-grid">
-                            <button type="submit" class="btn btn-primary" (click)="updateDetails()">Submit</button>
+                            <button type="submit" class="btn btn-primary" (click)="changePassword()">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div *ngIf="user.address" class="details align-center mt-4 py-4">
+            <div *ngIf="user?.address" class="details align-center mt-4 py-4">
                 <h2 class="mb-3">Address</h2>
                 <p>
                     <b>Address:</b> {{ user.address.address }}

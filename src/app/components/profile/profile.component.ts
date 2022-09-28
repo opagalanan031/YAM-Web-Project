@@ -25,10 +25,12 @@ export class ProfileComponent implements OnInit {
   user!: User;
   userId!: number;
   editDetails = false;
+  changePw = false;
   editAddress = false;
   errorMessage = '';
 
   detailsForm!: FormGroup;
+  passwordForm!: FormGroup;
   addressForm!: FormGroup;
 
   states: string[] = [ "AK","AL","AR","AS","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"];
@@ -51,13 +53,17 @@ export class ProfileComponent implements OnInit {
     })
 
     this.detailsForm = new FormGroup({
-      'email': new FormControl(this.user.email, [Validators.required, Validators.email]),
-      'username': new FormControl(this.user.username, [Validators.required, Validators.minLength(6)]),
+      'email': new FormControl('', [Validators.required, Validators.email]),
+      'username': new FormControl('', [Validators.required, Validators.minLength(6)]),
+      
+      'firstName': new FormControl('', [Validators.required]),
+      'lastName': new FormControl('', [Validators.required]),
+      'phone': new FormControl('', [Validators.required]),
+    });
+
+    this.passwordForm = new FormGroup({
       'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'confirmPassword': new FormControl('', [Validators.required]),
-      'firstName': new FormControl(this.user.firstName, [Validators.required]),
-      'lastName': new FormControl(this.user.lastName, [Validators.required]),
-      'phone': new FormControl(this.user.phone, [Validators.required]),
+      'confirmPassword': new FormControl('', [Validators.required])
     });
 
     this.addressForm = new FormGroup({
@@ -83,15 +89,13 @@ export class ProfileComponent implements OnInit {
   }
 
   updateDetails() {
-    if(this.detailsForm.get('password')?.value !== this.detailsForm.get('confirmPassword')?.value) {
-      this.errorMessage = 'Passwords do not match';
-    } else if(!this.detailsForm?.valid) {
+    if(!this.detailsForm?.valid) {
       this.errorMessage = 'Please fill up required fields';
     } else {
       const updatedUser: User = {
         email: this.detailsForm.get('email')?.value,
         username: this.detailsForm.get('username')?.value,
-        password: this.detailsForm.get('password')?.value,
+        password: this.user.password,
         firstName: this.detailsForm.get('firstName')?.value,
         lastName: this.detailsForm.get('lastName')?.value,
         phone: this.detailsForm.get('phone')?.value,
@@ -99,7 +103,7 @@ export class ProfileComponent implements OnInit {
         address: this.user.address
       };
 
-      this.userService.updateDetails(updatedUser).subscribe({
+      this.userService.updateDetails(updatedUser, this.userId).subscribe({
         next: (data) => {
           window.alert('User Details updated successfully');
           window.location.reload();
@@ -110,6 +114,16 @@ export class ProfileComponent implements OnInit {
         }
       })
 
+    }
+  }
+
+  changePassword() {
+    if(this.passwordForm.get('password')?.value !== this.passwordForm.get('confirmPassword')?.value) {
+      this.errorMessage = 'Passwords do not match';
+    } else if(!this.passwordForm?.valid) {
+      this.errorMessage = 'Please fill up required fields';
+    } else {
+      
     }
   }
 
