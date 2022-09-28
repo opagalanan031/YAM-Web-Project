@@ -1,12 +1,13 @@
 <nav class="navbar bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand title-font" routerLink="/">Young Adults Ministry</a>
+    <a class="navbar-brand title-font" *ngIf="!authenticated" routerLink="/">Young Adults Ministry</a>
+    <a class="navbar-brand title-font" *ngIf="authenticated" routerLink="/dashboard">Young Adults Ministry</a>
     <span class="spacer-right"></span>
     <form class="d-flex me-4" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-light" type="submit">Search</button>
     </form>
-    <div *ngIf="authenticated" class="mx-4"> 
+    <div *ngIf="authenticated" class="mx-4 name"> 
       <b>Welcome {{ name }}</b>
     </div>
     <a routerLink="/login" class="log-link mx-4" *ngIf="!authenticated">Login</a>

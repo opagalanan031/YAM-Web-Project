@@ -16,3 +16,7 @@
 .spacer-right {
     flex: 1 1 auto;
 }
+
+.name {
+    color: white;
+}

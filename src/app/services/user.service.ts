@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { User } from '../models/models';
+import { Address, User } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,11 @@ export class UserService {
 
   updateDetails(user: User): Observable<any> {
     return this.httpClient.put<User>(this.USER_BASE_URL + '/update-details/' + user.id, user)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  updateAddress(address: Address, userId: number): Observable<any> {
+    return this.httpClient.put<User>(this.USER_BASE_URL + '/update-address/' + userId, address)
       .pipe(catchError(this.errorHandler));
   }
 

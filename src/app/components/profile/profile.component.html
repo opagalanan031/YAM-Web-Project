@@ -1,11 +1,14 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
+        <div class="col-2 sidebar">
             <app-sidebar></app-sidebar>
         </div>
-        <div class="col-10 center middle justify-content-center">
-            <div *ngIf="user" class="details">
-                <h2>User Details</h2>
+        <div class="col-10 py-5 center middle justify-content-center">
+            <div *ngIf="errorMessage" class="alert alert-danger warning"> 
+                {{ errorMessage}}
+            </div>
+            <div *ngIf="user" class="details align-center py-4">
+                <h2 class="mb-3">User Details</h2>
                 <p>
                     <b>Email Address:</b> {{ user.email }}
                 </p>
@@ -21,6 +24,97 @@
                 <p>
                     <b>Phone Number:</b> {{ user.phone }}
                 </p>
+                <button type="button" class="btn btn-primary" *ngIf="!editDetails" (click)="editDetails = !editDetails">Update</button>
+                <button type="button" class="btn btn-primary" *ngIf="editDetails" (click)="editDetails = !editDetails">Cancel</button>
+
+                <div *ngIf="editDetails" class="pt-3">
+                    <form class="row g-3 px-4 py-3 needs-validation" novalidate [formGroup]="detailsForm" #dForm="ngForm">
+                        <div class="col-md-6 form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="name@gmail.com" value={{user.email}} formControlName="email" required>
+                            <label for="email">Email</label>
+                            <div class="invalid-feedback">
+                                Email is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">
+                            <input type="text" class="form-control" id="username" placeholder="Username" value={{user.username}} formControlName="username" required>
+                            <label for="username">Username</label>
+                            <div class="invalid-feedback">
+                                Username is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required>
+                            <label for="password">Password</label>
+                            <div class="invalid-feedback">
+                                Password is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3"> 
+                            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+                            <label for="confirm-password">Confirm Password</label>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">          
+                            <input type="text" class="form-control" id="first-name" placeholder="First Name" value={{user.firstName}} formControlName="firstName" required>
+                            <label for="first-name">First Name</label>
+                            <div class="invalid-feedback">
+                                First Name is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3"> 
+                            <input type="text" class="form-control" id="last-name" placeholder="Last Name" value={{user.lastName}} formControlName="lastName" required>
+                            <label for="last-name">Last Name</label>
+                            <div class="invalid-feedback">
+                                Last Name is <strong>required</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3 align-center">
+                            <input type="text" class="form-control" id="phone" placeholder="Phone" value={{user.phone}} formControlName="phone">
+                            <label for="phone" class="form-label">Phone</label>
+                        </div>
+                        
+                        <div class="col-7 align-center d-grid">
+                            <button type="submit" class="btn btn-primary" (click)="updateDetails()">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="user.address" class="details align-center mt-4 py-4">
+                <h2 class="mb-3">Address</h2>
+                <p>
+                    <b>Address:</b> {{ user.address.address }}
+                </p>
+                <p>
+                    <b>City:</b> {{ user.address.city }}
+                </p>
+                <p>
+                    <b>State:</b> {{ user.address.state }}
+                </p>
+                <button type="button" class="btn btn-primary" *ngIf="!editAddress" (click)="editAddress = !editAddress">Update</button>
+                <button type="button" class="btn btn-primary" *ngIf="editAddress" (click)="editAddress = !editAddress">Cancel</button>
+
+                <div *ngIf="editAddress" class="pt-3">
+                    <form class="row g-3 px-4 py-3 needs-validation" novalidate [formGroup]="addressForm" #aForm="ngForm">
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" formControlName="address" required>
+                            <label for="address">Address</label>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">
+                            <input type="text" class="form-control" id="city" placeholder="City" formControlName="city" required> 
+                            <label for="city" class="form-label">City</label>
+                        </div>
+                        <div class="col-md-6 form-floating mb-3">      
+                            <select id="state" class="form-select" formControlName="state" required>
+                                <option selected disabled>Select State...</option>
+                                <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+                            </select>
+                            <label for="state">State</label>
+                        </div>
+                        <div class="col-7 align-center d-grid">
+                            <button type="submit" class="btn btn-primary" (click)="updateAddress()">Submit</button>
+                        </div>
+                    </form> 
+                </div>
             </div>
         </div>
     </div>
