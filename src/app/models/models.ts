@@ -16,3 +16,9 @@ export interface User {
     role: string;
     address: Address;
 }
+
+export interface Message {
+    id?: number;
+    msgText: string;
+    sender: string;
+}

@@ -89,6 +89,8 @@ export class ProfileComponent implements OnInit {
   }
 
   updateDetails() {
+    this.errorMessage = '';
+
     if(!this.detailsForm?.valid) {
       this.errorMessage = 'Please fill up required fields';
     } else {
@@ -104,10 +106,6 @@ export class ProfileComponent implements OnInit {
       };
 
       this.userService.updateDetails(updatedUser, this.userId).subscribe({
-        next: (data) => {
-          window.alert('User Details updated successfully');
-          window.location.reload();
-        },
         error: (err) => {
           console.log(err);
           this.errorMessage = err.error.message;
@@ -118,16 +116,27 @@ export class ProfileComponent implements OnInit {
   }
 
   changePassword() {
+    this.errorMessage = '';
+
     if(this.passwordForm.get('password')?.value !== this.passwordForm.get('confirmPassword')?.value) {
       this.errorMessage = 'Passwords do not match';
     } else if(!this.passwordForm?.valid) {
       this.errorMessage = 'Please fill up required fields';
     } else {
+      const newPassword = this.passwordForm.get('password')?.value;
       
+      this.userService.changePassword(newPassword, this.userId).subscribe({
+        error: (err) => {
+          console.log(err);
+          this.errorMessage = err.error.message;
+        }
+      })
     }
   }
 
   updateAddress() {
+    this.errorMessage = '';
+
     if(!this.addressForm?.valid) {
       this.errorMessage = 'Please fill up required fields';
     } else {
@@ -138,15 +147,15 @@ export class ProfileComponent implements OnInit {
       };
 
       this.userService.updateAddress(updatedAddress, this.userId).subscribe({
-        next: (data) => {
-          window.alert('Address updated successfully');
-          window.location.reload();
-        },
         error: (err) => {
           console.log(err);
           this.errorMessage = err.error.message;
         }
       })
     }
+  }
+
+  reload() {
+       window.location.reload();
   }
 }

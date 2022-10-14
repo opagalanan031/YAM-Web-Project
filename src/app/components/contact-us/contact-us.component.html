@@ -1,12 +1,40 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 sidebar">
+        <div class="col-2">
             <app-sidebar></app-sidebar>
         </div>
-        <div class="col-10 center middle justify-content-center">
-            <p>Contact Us Content</p>
+        <div class="col-10 py-5 center middle justify-content-center">
+            <div *ngIf="errorMessage" class="alert alert-danger warning"> 
+                {{ errorMessage}}
+            </div>
+            <h2 class="mb-5">Send us a Message!</h2>
+            <form>
+                <div class="mb-4">
+                    <textarea class="form-control" id="messageTextarea" rows="8" placeholder="Put down your message here..."
+                        [(ngModel)]="message" [ngModelOptions]="{standalone: true}" required></textarea>
+                </div>
+                <div>
+                    <button class="btn btn-primary btn-lg" (click)="sendMessage()" data-toggle="modal" data-target="#messageModal">Send</button>
 
-           
+                    <div class="modal fade" id="messageModal" tabindex="-1" *ngIf="!errorMessage">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Contact Us</h5>
+                              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Message sent</p>
+                                <p>Thank you for reaching out to us! :)</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reload()">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>              
+                </div>
+            </form> 
         </div>
     </div>
 </div>

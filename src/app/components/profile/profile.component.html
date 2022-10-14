@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 sidebar">
+        <div class="col-2">
             <app-sidebar></app-sidebar>
         </div>
         <div class="col-10 py-5 center middle justify-content-center">
@@ -67,21 +67,21 @@
                         
                         
                         <div class="col-7 align-center d-grid">
-                            <button type="submit" class="btn btn-primary" (click)="updateDetails()" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
+                            <button type="submit" class="btn btn-primary" (click)="updateDetails()" data-toggle="modal" data-target="#detailsModal">Submit</button>
 
                             <!-- TODO: Modal Implementation -->
-                            <div class="modal fade" id="myModal" tabindex="-1">
+                            <div class="modal fade" id="detailsModal" tabindex="-1" *ngIf="!errorMessage">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h5 class="modal-title">Update User Details</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                       <p>User Details Updated Successfully!</p>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reload()">Close</button>
                                     </div>
                                   </div>
                                 </div>
@@ -103,7 +103,24 @@
                             <label for="confirm-password">Confirm Password</label>
                         </div>
                         <div class="col-7 align-center d-grid">
-                            <button type="submit" class="btn btn-primary" (click)="changePassword()">Submit</button>
+                            <button type="submit" class="btn btn-primary" (click)="changePassword()" data-toggle="modal" data-target="#passwordModal">Submit</button>
+
+                            <div class="modal fade" id="passwordModal" tabindex="-1" *ngIf="!errorMessage">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Change Password</h5>
+                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Password Changed Successfully!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reload()">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>              
                         </div>
                     </form>
                 </div>
@@ -140,7 +157,24 @@
                             <label for="state">State</label>
                         </div>
                         <div class="col-7 align-center d-grid">
-                            <button type="submit" class="btn btn-primary" (click)="updateAddress()">Submit</button>
+                            <button type="submit" class="btn btn-primary" (click)="updateAddress()" data-toggle="modal" data-target="#addressModal">Submit</button>
+
+                            <div class="modal fade" id="addressModal" tabindex="-1" *ngIf="!errorMessage">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Update Address</h5>
+                                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Address Updated Successfully!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reload()">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>              
                         </div>
                     </form> 
                 </div>
