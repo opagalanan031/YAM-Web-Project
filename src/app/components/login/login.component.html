@@ -3,7 +3,7 @@
         {{ errorMessage }}
     </div>
     <div class="form px-5 py-5">
-        <h1 class="center pb-4">Login</h1>
+        <h1 class="text-center pb-4">Login</h1>
         <form class="row justify-content-center g-3 pt-3 needs-validation" novalidate>
             <div class="col-7 form-floating mb-2">
                 <input type="text" class="form-control" id="username" placeholder="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" required>
@@ -19,14 +19,14 @@
                     Password is <strong>required</strong>
                 </div>
             </div>
-            <div class="col-12 center">
+            <div class="col-12 text-center">
                 <a class="forgot" routerLink="/#">Forgot Password?</a>
             </div>            
             <div class="col-7 d-grid">
                 <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
             </div>
             <div class="col-12">
-                <p class="center">Don't have an account? <a routerLink="/register">Register here!</a></p>
+                <p class="text-center">Don't have an account? <a routerLink="/register">Register here!</a></p>
             </div>
         </form>
     </div>

@@ -1,8 +1,12 @@
-.align-center {
+.text-center {
     margin-left: auto;
     margin-right: auto;
 }
 
 .sidebar {
     border-right: 1px black solid;
+}
+
+img {
+    width: 100%;
 }

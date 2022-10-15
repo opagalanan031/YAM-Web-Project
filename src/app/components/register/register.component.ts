@@ -49,7 +49,8 @@ export class RegisterComponent implements OnInit {
       'role': new FormControl('', [Validators.required]),
       'address': new FormControl(),
       'city': new FormControl(),
-      'state': new FormControl()
+      'state': new FormControl(),
+      'terms': new FormControl('', [Validators.required])
     });
 
     const forms = document.querySelectorAll('.needs-validation');
@@ -69,8 +70,13 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    console.log(this.registerForm.get('terms'));
+
     if(this.registerForm.get('password')?.value !== this.registerForm.get('confirmPassword')?.value) {
       this.errorMessage = 'Passwords do not match';
+    // } else if(!this.registerForm.get('terms')) {
+    //     this.errorMessage = 'Please agree to the terms and conditions';
+    // } 
     } else if(!this.registerForm?.valid) {
       this.errorMessage = 'Please fill up required fields';
     } else {
