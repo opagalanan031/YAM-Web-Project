@@ -18,8 +18,8 @@ export class MessageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  sendMessage(msg: Message): Observable<Message> {
-    return this.httpClient.post<Message>(this.MSG_BASE_URL + '/send-message', msg, this.postHeader)
+  sendMessage(msgText: string, sender: string): Observable<Message> {
+    return this.httpClient.post<Message>(this.MSG_BASE_URL + '/send-message', {msgText, sender}, this.postHeader)
       .pipe(catchError(this.errorHandler));
   }
 

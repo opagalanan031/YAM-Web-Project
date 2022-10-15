@@ -32,12 +32,7 @@ export class ContactUsComponent implements OnInit {
     if(!this.message) {
       this.errorMessage = 'Please enter a message';
     } else {
-      const newMessage: Message = {
-        msgText: this.message,
-        sender: this.username
-      }
-
-      this.messageService.sendMessage(newMessage).subscribe({
+      this.messageService.sendMessage(this.message, this.username).subscribe({
         error: (err) => {
           this.errorMessage = err.error.message;
         }
