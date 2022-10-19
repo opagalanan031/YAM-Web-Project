@@ -10,3 +10,11 @@
 img {
     width: 100%;
 }
+
+.container {
+    width: 95%;
+}
+
+.align-justify {
+    text-align: justify;
+}

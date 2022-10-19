@@ -16,6 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     ProfileComponent,
     AboutComponent,
     ScheduleComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

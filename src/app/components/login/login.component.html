@@ -2,7 +2,7 @@
     <div *ngIf="errorMessage" class="alert alert-danger warning"> 
         {{ errorMessage }}
     </div>
-    <div class="form px-5 py-5">
+    <div class="container form px-5 py-5">
         <h1 class="text-center pb-4">Login</h1>
         <form class="row justify-content-center g-3 pt-3 needs-validation" novalidate>
             <div class="col-7 form-floating mb-2">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="col-12 text-center">
-                <a class="forgot" routerLink="/#">Forgot Password?</a>
+                <a class="forgot" routerLink="/forgot-password">Forgot Password?</a>
             </div>            
             <div class="col-7 d-grid">
                 <button type="submit" class="btn btn-primary" (click)="login()">Login</button>

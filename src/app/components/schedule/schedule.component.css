@@ -12,6 +12,11 @@ table {
     margin: auto;
 }
 
+td,
+th {
+    width: 50px;
+}
+
 .disabled {
     color: silver;
 }

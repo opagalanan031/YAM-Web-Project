@@ -35,6 +35,11 @@ export class UserService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getUserByEmail(email: string): Observable<User> {
+    return this.httpClient.get<User>(this.USER_BASE_URL + '/confirm-email/' + email)
+      .pipe(catchError(this.errorHandler));
+  }
+
   updateDetails(user: User, userId: number): Observable<any> {
     return this.httpClient.put<User>(this.USER_BASE_URL + '/update-details/' + userId, user)
       .pipe(catchError(this.errorHandler));
