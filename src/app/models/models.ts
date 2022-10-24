@@ -17,8 +17,21 @@ export interface User {
     address: Address;
 }
 
+export interface UserDetails {
+    id?: number;
+    email: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+    phone: string;
+}
+
 export interface Message {
     id?: number;
     msgText: string;
     sender: string;
+    timestamp: Date;
 }
+
+
+

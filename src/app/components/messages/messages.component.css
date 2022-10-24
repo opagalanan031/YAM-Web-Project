@@ -1,0 +1,28 @@
+.heading {
+    width: 80%;
+}
+
+.sender {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    width: 20%;
+    height: 30px;
+    margin-top: -65px;
+    margin-left: -15px;
+    text-align: center;
+}
+
+.message-card {
+    border: 3px solid black;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.reply-btn {
+    margin-top: 40px;
+    text-align: right;
+    margin-right: 20px;
+}

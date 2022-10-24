@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { RegularGuard } from '../guards/regular.guard';
 import { CoreGuard } from '../guards/core.guard';
+import { AnyMemberGuard } from '../guards/any-member.guard';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
@@ -28,5 +29,6 @@ export const httpInterceptorProviders = [
     provide: HTTP_INTERCEPTORS, userClass: HttpRequestInterceptor, multi: true 
   },
   RegularGuard,
-  CoreGuard
+  CoreGuard,
+  AnyMemberGuard
 ];

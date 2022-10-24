@@ -17,6 +17,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { CoreDashboardComponent } from './components/core-dashboard/core-dashboard.component';
+import { CoreSidebarComponent } from './components/core-sidebar/core-sidebar.component';
+import { MemberListComponent } from './components/member-list/member-list.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     AboutComponent,
     ScheduleComponent,
     ContactUsComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    CoreDashboardComponent,
+    CoreSidebarComponent,
+    MemberListComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

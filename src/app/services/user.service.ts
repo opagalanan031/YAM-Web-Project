@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Address, User } from '../models/models';
+import { Address, User, UserDetails } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,8 @@ export class UserService {
       .pipe(catchError(this.errorHandler));;
   }
 
-  getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.USER_BASE_URL + '/get-all-users')
+  getUsers(): Observable<UserDetails[]> {
+    return this.httpClient.get<UserDetails[]>(this.USER_BASE_URL + '/get-all-users')
       .pipe(catchError(this.errorHandler));
   }
 

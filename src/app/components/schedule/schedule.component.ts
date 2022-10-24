@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-schedule',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
+  
+  roles: string[] = [];
 
-  constructor() { }
+  constructor(
+    private tokenStorageService: TokenStorageService
+  ) { }
 
   ngOnInit(): void {
+    this.roles = this.tokenStorageService.getUser().roles;
   }
 
 }

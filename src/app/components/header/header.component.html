@@ -1,7 +1,8 @@
 <nav class="navbar bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand title-font" *ngIf="!authenticated" routerLink="/">Young Adults Ministry</a>
-    <a class="navbar-brand title-font" *ngIf="authenticated" routerLink="/dashboard">Young Adults Ministry</a>
+    <a class="navbar-brand title-font" *ngIf="authenticated && roles.includes('REGULAR_MEMBER')" routerLink="/dashboard">Young Adults Ministry</a>
+    <a class="navbar-brand title-font" *ngIf="authenticated && roles.includes('CORE_MEMBER')" routerLink="/core-dashboard">Young Adults Ministry</a>
     <span class="spacer-right"></span>
     <div *ngIf="authenticated" class="mx-4 name align-center"> 
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-fill me-1" viewBox="0 0 18 18">

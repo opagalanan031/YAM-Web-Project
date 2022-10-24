@@ -23,6 +23,11 @@ export class MessageService {
       .pipe(catchError(this.errorHandler));
   }
 
+  getMessages(): Observable<Message[]> {
+    return this.httpClient.get<Message[]>(this.MSG_BASE_URL + '/get-messages') 
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

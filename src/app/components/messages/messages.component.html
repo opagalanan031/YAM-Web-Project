@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            <app-core-sidebar></app-core-sidebar>
+        </div>
+        <div class="col-10 my-4 center">
+            <div class="py-4 heading center">
+                <h1>Messages:</h1>
+            </div>
+            <div *ngFor="let message of messages" class="py-4">
+                <div class="message-card pt-5 center">
+                    <div class="sender">
+                        <span class="">{{message.sender}}</span>
+                    </div>
+                    <div class="my-4 ms-5">
+                        {{message.msgText}}
+                    </div>
+                    <div class="ms-5 pb-3 reply-btn">
+                        <button type="button" class="btn btn-primary">Reply</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

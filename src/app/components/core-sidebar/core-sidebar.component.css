@@ -1,0 +1,12 @@
+.sidebar-div {
+    width: 75%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
