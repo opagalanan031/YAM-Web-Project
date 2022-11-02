@@ -3,6 +3,10 @@
     font-weight: bolder;
 }
 
+.title-font:hover {
+    color: white;
+}
+
 .log-link {
     color: white;
     text-decoration: none;
