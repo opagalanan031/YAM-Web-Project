@@ -21,6 +21,8 @@ import { CoreDashboardComponent } from './components/core-dashboard/core-dashboa
 import { CoreSidebarComponent } from './components/core-sidebar/core-sidebar.component';
 import { MemberListComponent } from './components/member-list/member-list.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CoreNavbarComponent } from './components/core-navbar/core-navbar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MessagesComponent } from './components/messages/messages.component';
     CoreDashboardComponent,
     CoreSidebarComponent,
     MemberListComponent,
-    MessagesComponent
+    MessagesComponent,
+    NavbarComponent,
+    CoreNavbarComponent
   ],
   imports: [
     BrowserModule,

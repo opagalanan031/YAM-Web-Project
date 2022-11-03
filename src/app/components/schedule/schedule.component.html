@@ -8,6 +8,14 @@
               <app-core-sidebar></app-core-sidebar>
             </div>
         </div>
+        <div class="row col-12 d-lg-none fs-6 text">
+          <div *ngIf="roles.includes('REGULAR_MEMBER')">
+            <app-navbar></app-navbar>
+          </div>
+          <div *ngIf="roles.includes('CORE_MEMBER')">
+              <app-core-navbar></app-core-navbar>
+          </div>
+        </div>
         <div class="col-lg-10 text-center middle justify-content-center">
             <header>
                 <h2 class="my-4">November 2022</h2>
