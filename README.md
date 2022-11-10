@@ -1,27 +1,27 @@
-# YAMWebProject
+# **Young Adults Ministry Web Application - Frontend**
+### _**by Oliver Pagalanan**_
+<br />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Description:
+This project aims to provide a web application for members of the Young Adults Ministy.\
+The application serves as the main resource and service provider for the ministry's funtions such as sharing and viewing announcements, events, activities and schedules, as well as user profile management and messaging.\
+Each member/user is prompted to create an account to gain access to the various resources and services provided by the application, and the access will be based on the role of the current user (either Regular or Core Member).
 
-## Development server
+<br />
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features:
+- User Login and Registration
+- User-friendly interface
+- Input validation and error handling
+- Forgot password support
+- User authentication
+- Role-based access and functions
+- Message/Feedback functionality
 
-## Code scaffolding
+<br />
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Technology Stack Used:
+- Angular Framework
+- Bootstrap
+- HTML/CSS
+- GitHub 
